@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Posture Guard</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <h1>Posture Guard</h1>
+    <video id="videoInput" style="display: none"></video>
+    <div class="container">
+      <canvas id="canvasFrame"></canvas>
+      <div id="posture">Click "Capture Posture" to begin</div>
+    </div>
+    <div id="controls" class="controls">
+      <div>
+        <label for="sensitivity">Sensitivity:</label>
+        <select name="Sensitivity" id="sensitivity">
+          <option value="12">Very Low</option>
+          <option value="10">Low</option>
+          <option value="8" selected>Medium</option>
+          <option value="6">High</option>
+        </select>
+      </div>
+      <div>
+        <label for="sound">Alert Sound:</label>
+        <select name="sound" id="sound">
+          <option value="meme-sound.mp3">Meme Sound</option>
+          <option value="small-pop.mp3">Small Pop</option>
+          <option value="cartoon-percussion.mp3">Cartoon Percussion</option>
+        </select>
+      </div>
+    </div>
+    <script defer src="/opencv.js"></script>
+    <script src="/script.js"></script>
+  </body>
+</html>
