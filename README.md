@@ -27,3 +27,9 @@ If your face falls below the blue line, an alert sound will be played and a red 
 <img src="images/bad_posture.png" width=360>
 
 You can always click "Capture Posture" again if you want a new threshold. Feel free to edit the parameters to your liking!
+
+## Support
+
+Encounter an issue?
+
+If you find a bug or have a feature request, please file an issue or email me at timliang4@gmail.com. Or, if you'd like to contribute, feel free to submit a pull request.
