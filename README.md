@@ -13,3 +13,11 @@ The OpenCV.js library is used to detect a bounding rectangle for your face. HCpo
 This mechanism is simple yet effective. The height of your face when you are sitting in a good posture is a product of a straightened back, neck and shoulders, and therefore is a good indicator of your overall posture. 
 
 ## Usage Example
+
+To capture your posture, first get in a good posture and then click the "Capture Posture" button. A blue line (the threshold for good/bad posture) will appear and follow the lower bound of your face's detection rectangle.
+
+Once the posture is completed, the blue line will stop moving and a green "Good Posture" message will appear on the right side.
+
+If your face falls below the blue line, an alert sound will be played (if you're in another tab) and a red "Bad Posture" message will appear on the right side.
+
+Feel free to edit the parameters to your liking!
