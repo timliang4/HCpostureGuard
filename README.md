@@ -20,4 +20,4 @@ Once the posture is completed, the blue line will stop moving and a green "Good 
 
 If your face falls below the blue line, an alert sound will be played (if you're in another tab) and a red "Bad Posture" message will appear on the right side.
 
-Feel free to edit the parameters to your liking!
+You can always click "Capture Posture" again if you want a new threshold. Feel free to edit the parameters to your liking!
