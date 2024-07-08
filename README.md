@@ -22,7 +22,7 @@ Once the posture is completed, the blue line will stop moving and a green "Good 
 
 <img src="images/good_posture.png" width=360>
 
-If your face falls below the blue line, an alert sound will be played (if you're in another tab) and a red "Bad Posture" message will appear on the right side.
+If your face falls below the blue line, an alert sound will be played and a red "Bad Posture" message will appear on the right side.
 
 <img src="images/bad_posture.png" width=360>
 
