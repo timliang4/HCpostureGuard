@@ -14,7 +14,7 @@ This mechanism is simple yet effective. The height of your face when you are sit
 
 ## Usage Example
 
-To capture your posture, first get in a good posture and then click the "Capture Posture" button. A blue line (the threshold for good/bad posture) will appear and follow the lower bound of your face's detection rectangle.
+To capture your posture, first get in a good posture and then click the "Capture Posture" button. A blue line (the threshold for good/bad posture) will appear and follow the lower bound of your face's detection rectangle (don't worry, it will move further down once the capture is complete!)
 
 Once the posture is completed, the blue line will stop moving and a green "Good Posture" message will appear on the right side.
 
