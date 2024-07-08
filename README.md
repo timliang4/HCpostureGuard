@@ -4,7 +4,7 @@
 
 ## Link
 
-You can use the tool yourself using this GitHub project's [website](https://timliang4.github.io/HCpostureGuard/)
+You can use the tool yourself using this GitHub project's [website](https://timliang4.github.io/HCpostureGuard/).
 
 ## How it works
 
