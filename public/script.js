@@ -97,7 +97,7 @@ window.addEventListener('load', () => {
 				}
 				button.addEventListener('click', capturePosture)
 				controls.appendChild(button)
-				brk.addEventListener('click', () => {if (stop) {setTimeout(process_image, 0); brk.innerText="Take a break"} else {brk.innerText="Resume"} stop=!stop})
+				brk.addEventListener('click', () => {if (stop) {setTimeout(process_image, 0); brk.innerText="Take a break"; button.disabled=false} else {brk.innerText="Resume"; button.disabled=true} stop=!stop})
 			})	
 		})
 	};
