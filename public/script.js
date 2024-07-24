@@ -5,8 +5,10 @@ const controls = document.getElementById('controls')
 let audio = new Audio('/meme-sound.mp3')
 const stvtySelection = document.getElementById('sensitivity')
 const soundSelection = document.getElementById('sound')
+const brk = document.getElementById('break')
 let minLevel = 0
 let sensitivity = 8
+let stop = false
 navigator.mediaDevices.getUserMedia({video: true, audio: false})
 	.then((stream) => {
 		video.srcObject = stream
@@ -20,9 +22,11 @@ stvtySelection.addEventListener('change', () => {
 	minLevel = minLevel - sensitivity + newSensitivity
 	sensitivity = newSensitivity
 })
-
 soundSelection.addEventListener('change', () => {
 	audio = new Audio('/' + soundSelection.value)
+})
+brk.addEventListener('click', () => {
+	stop = !stop
 })
 
 window.addEventListener('load', () => {
@@ -44,6 +48,7 @@ window.addEventListener('load', () => {
 				let classifier = new cv.CascadeClassifier('/haarcascade_frontalface_alt.xml');
 				let captureMode = false
 				let goodPosture = false;
+				let stop = false;
 				let playAudio = () => {};
 				const cap = new cv.VideoCapture(video)
 				function process_image() {
@@ -77,8 +82,8 @@ window.addEventListener('load', () => {
 					}	
 					cv.line(dst, new cv.Point(0, minLevel), new cv.Point(video.width - 1, minLevel), [0, 0, 255, 255])
 					cv.imshow('canvasFrame', dst)
-					let delay = (1000 / 30) - (Date.now() - begin)
-					setTimeout(process_image, delay, stop)
+					let delay = (1000 / 60) - (Date.now() - begin)
+					!stop && setTimeout(process_image, delay)
 				}
 				setTimeout(process_image, 0)
 				const button = document.createElement('button');
@@ -87,11 +92,12 @@ window.addEventListener('load', () => {
 					captureMode = true;
 					minLevel = 0;
 					button.disabled = true;
-					playAudio = () => {audio.play()}
+					playAudio = () => {audio && audio.play()}
 					setTimeout(() => {captureMode = false; minLevel += sensitivity; button.disabled = false}, 3000)
 				}
 				button.addEventListener('click', capturePosture)
 				controls.appendChild(button)
+				brk.addEventListener('click', () => {if (stop) {setTimeout(process_image, 0); brk.innerText="Take a break"} else {brk.innerText="Resume"} stop=!stop})
 			})	
 		})
 	};
