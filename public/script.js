@@ -8,7 +8,6 @@ const soundSelection = document.getElementById('sound')
 const brk = document.getElementById('break')
 let minLevel = 0
 let sensitivity = 8
-let stop = false
 navigator.mediaDevices.getUserMedia({video: true, audio: false})
 	.then((stream) => {
 		video.srcObject = stream
@@ -24,9 +23,6 @@ stvtySelection.addEventListener('change', () => {
 })
 soundSelection.addEventListener('change', () => {
 	audio = new Audio('/' + soundSelection.value)
-})
-brk.addEventListener('click', () => {
-	stop = !stop
 })
 
 window.addEventListener('load', () => {

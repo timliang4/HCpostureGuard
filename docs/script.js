@@ -5,6 +5,7 @@ const controls = document.getElementById('controls')
 let audio = new Audio('meme-sound.mp3')
 const stvtySelection = document.getElementById('sensitivity')
 const soundSelection = document.getElementById('sound')
+const brk = document.getElementById('break')
 let minLevel = 0
 let sensitivity = 8
 navigator.mediaDevices.getUserMedia({video: true, audio: false})
@@ -43,7 +44,8 @@ window.addEventListener('load', () => {
 				let faces = new cv.RectVector()
 				let classifier = new cv.CascadeClassifier('/haarcascade_frontalface_alt.xml');
 				let captureMode = false
-				let goodPosture = false;
+				let goodPosture = false
+				let stop = false
 				let playAudio = () => {};
 				const cap = new cv.VideoCapture(video)
 				function process_image() {
@@ -77,8 +79,8 @@ window.addEventListener('load', () => {
 					}	
 					cv.line(dst, new cv.Point(0, minLevel), new cv.Point(video.width - 1, minLevel), [0, 0, 255, 255])
 					cv.imshow('canvasFrame', dst)
-					let delay = (1000 / 30) - (Date.now() - begin)
-					setTimeout(process_image, delay, stop)
+					let delay = (1000 / 60) - (Date.now() - begin)
+					!stop && setTimeout(process_image, delay)
 				}
 				setTimeout(process_image, 0)
 				const button = document.createElement('button');
@@ -92,6 +94,7 @@ window.addEventListener('load', () => {
 				}
 				button.addEventListener('click', capturePosture)
 				controls.appendChild(button)
+				brk.addEventListener('click', () => {if (stop) {setTimeout(process_image, 0); brk.innerText="Take a break"; button.disabled=false} else {brk.innerText="Resume"; button.disabled=true} stop=!stop})
 			})	
 		})
 	};
