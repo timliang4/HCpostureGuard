@@ -1,4 +1,4 @@
-# HCpostureGuard
+# PostureElevate
 
 #### **Posture Detection Tool using Haar Cascades**
 
