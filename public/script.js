@@ -48,7 +48,6 @@ window.addEventListener('load', () => {
 				let playAudio = () => {};
 				const cap = new cv.VideoCapture(video)
 				function process_image() {
-					let begin = Date.now()
 					cap.read(src)
 					src.copyTo(dst)
 					cv.cvtColor(dst, gray, cv.COLOR_RGBA2GRAY, 0)
@@ -78,8 +77,7 @@ window.addEventListener('load', () => {
 					}	
 					cv.line(dst, new cv.Point(0, minLevel), new cv.Point(video.width - 1, minLevel), [0, 0, 255, 255])
 					cv.imshow('canvasFrame', dst)
-					let delay = (1000 / 60) - (Date.now() - begin)
-					!stop && setTimeout(process_image, delay)
+					!stop && setTimeout(process_image, 0)
 				}
 				setTimeout(process_image, 0)
 				const button = document.createElement('button');
